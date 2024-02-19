@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:json/recommended",
+    "next/core-web-vitals"
+  ],
+  "plugins": ["import", "react", "jsx-a11y", "@typescript-eslint"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "es2020": true,
+    "jest": false
+  },
+  "rules": {
+    "import/no-unresolved": "off",
+    "import/named": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "import/no-duplicates": "error",
+    "sort-imports": "off",
+    "import/order": "off",
+    "no-console": "warn"
+  }
+}
