@@ -56,33 +56,33 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   metadataBase: new URL('https://next14-gold.vercel.app'),
   title: 'Дефицит',
-  description: 'Эта х..та вас ничему не научит',
-  alternates: {
-    canonical: '/default',
-    languages: {
-      'uk-UA': '/uk-UA',
-      'en-US': '/en-US',
-      'de-DE': '/de-DE',
-    },
-  },
-  openGraph: {
-    images: [
-      {
-        url: 'https://upload.wikimedia.org/wikipedia/en/4/41/IMG_Worlds_of_Adventure.png',
-      },
-    ],
-    type: 'website',
-    url: 'https://myURL.com',
-    title: 'это OG Title',
-    description: 'это OG description',
-    siteName: 'OG siteName - my TEst project',
-    locale: 'uk-UA',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: true,
-  },
+  // description: 'Эта х..та вас ничему не научит',
+  // alternates: {
+  //   canonical: '/default',
+  //   languages: {
+  //     'uk-UA': '/uk-UA',
+  //     'en-US': '/en-US',
+  //     'de-DE': '/de-DE',
+  //   },
+  // },
+  // openGraph: {
+  //   images: [
+  //     {
+  //       url: 'https://upload.wikimedia.org/wikipedia/en/4/41/IMG_Worlds_of_Adventure.png',
+  //     },
+  //   ],
+  //   type: 'website',
+  //   url: 'https://myURL.com',
+  //   title: 'это OG Title',
+  //   description: 'это OG description',
+  //   siteName: 'OG siteName - my TEst project',
+  //   locale: 'uk-UA',
+  // },
+  // robots: {
+  //   index: true,
+  //   follow: true,
+  //   nocache: true,
+  // },
 };
 
 export default function Home() {
