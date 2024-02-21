@@ -8,6 +8,7 @@ type Props = {
 
 export async function generateMetadata(
   { params, searchParams }: Props,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   // read route params
