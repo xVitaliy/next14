@@ -56,15 +56,15 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   metadataBase: new URL('https://next14-gold.vercel.app'),
   title: 'Дефицит',
-  // description: 'Эта х..та вас ничему не научит',
-  // alternates: {
-  //   canonical: '/default',
-  //   languages: {
-  //     'uk-UA': '/uk-UA',
-  //     'en-US': '/en-US',
-  //     'de-DE': '/de-DE',
-  //   },
-  // },
+  description: 'Эта хуета вас ничему не научит',
+  alternates: {
+    canonical: '/',
+    languages: {
+      'uk-UA': '/uk-UA',
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
   // openGraph: {
   //   images: [
   //     {
