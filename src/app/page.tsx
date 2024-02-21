@@ -22,7 +22,7 @@ export async function generateMetadata(
 
   console.log('previousImages', searchParams, id);
   return {
-    metadataBase: new URL('https://defaultURL.com'),
+    metadataBase: new URL('https://next14-gold.vercel.app'),
     title: 'Home page title',
     description: 'Эта хуета вас ничему не научит',
     alternates: {
