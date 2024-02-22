@@ -25,13 +25,13 @@ export async function generateMetadata(
   return {
     // metadataBase: new URL('https://next14-gold.vercel.app'),
     title: country?.name || '',
-    // description: 'Country description',
+    description: 'Country description',
     // alternates: {
     //   canonical: `/${code}`,
     // },
-    // openGraph: {
-    //   images: ['/some-specific-page-image.jpg', ...previousImages],
-    // },
+    openGraph: {
+      images: ['/some-specific-page-image.jpg', ...previousImages],
+    },
     robots: {
       index: true,
       follow: true,

@@ -21,6 +21,11 @@ export async function generateMetadata(): Promise<Metadata> {
         'de-DE': '/de-DE',
       },
     },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+    },
   };
 }
 
