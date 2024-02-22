@@ -3,7 +3,7 @@
 import { Button, Stack, SxProps, Theme } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
-const WrapperSX: SxProps<Theme> = {
+const wrapperSX: SxProps<Theme> = {
   // color: (theme) => {
   //   return theme.vars.palette.primary.main;
   // },
@@ -18,7 +18,7 @@ export default function NotFound() {
     router.push('/');
   };
   return (
-    <Stack sx={WrapperSX}>
+    <Stack sx={wrapperSX}>
       <h1>404 - Page Not Found</h1>
       <Stack width={200}>
         <Button onClick={goHome}>Go home</Button>

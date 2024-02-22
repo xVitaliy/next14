@@ -1,8 +1,6 @@
-// import { Link as MUILink, Stack } from '@mui/material';
-import { Stack } from '@mui/material';
+import { Link as MUILink, Stack } from '@mui/material';
 import { client } from '@/graphql/client';
 import { COUNTRIES } from '@/graphql/query/countries.gql';
-// import Link from 'next/link';
 import { CountriesQuery } from '@/graphql/generated';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
@@ -61,12 +59,12 @@ export default async function Countries() {
     <Stack>
       {data.countries.map((country) => {
         return (
-          // <MUILink key={country.code} component={Link} href={`countries/${country.code}`}>
-          //   {country.name}
-          // </MUILink>
-          <Link key={country.code} href={`/countries/${country.code}`}>
+          <MUILink key={country.code} component={Link} href={`countries/${country.code}`}>
             {country.name}
-          </Link>
+          </MUILink>
+          // <Link key={country.code} href={`/countries/${country.code}`}>
+          //   {country.name}
+          // </Link>
         );
       })}
     </Stack>
