@@ -10,6 +10,36 @@ import { Metadata, ResolvingMetadata } from 'next';
 // import img from '../../../../public/image/tree.jpg';
 // import mountains from '../../../../public/mountains.jpg';
 
+export async function generateMetadata(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  { params: { code }, searchParams }: Props,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { country } = await getData(code);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    // metadataBase: new URL('https://next14-gold.vercel.app'),
+    title: 'country?.name' || '',
+    // description: 'Country description',
+    // alternates: {
+    //   canonical: `/${code}`,
+    // },
+    // openGraph: {
+    //   images: ['/some-specific-page-image.jpg', ...previousImages],
+    // },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+    },
+  };
+}
+
 async function getData(code: string) {
   const res = await client.query<CountryQuery, CountryQueryVariables>({
     query: COUNTRY,
@@ -24,34 +54,6 @@ type Props = {
   params: { code: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
-
-export async function generateMetadata(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  { params: { code }, searchParams }: Props,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const { country } = await getData(code);
-
-  const previousImages = (await parent).openGraph?.images || [];
-
-  return {
-    metadataBase: new URL('https://next14-gold.vercel.app'),
-    title: country?.name || '',
-    description: 'Country description',
-    alternates: {
-      canonical: `/${code}`,
-    },
-    openGraph: {
-      images: ['/some-specific-page-image.jpg', ...previousImages],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      nocache: true,
-    },
-  };
-}
 
 // export const metadata: Metadata = {
 //   metadataBase: new URL('https://next14-gold.vercel.app'),
