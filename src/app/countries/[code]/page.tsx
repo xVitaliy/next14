@@ -26,23 +26,37 @@ type Props = {
   };
 };
 
-export async function generateMetadata({ params: { code } }: Props): Promise<Metadata> {
-  const { country } = await getData(code);
+// export async function generateMetadata({ params: { code } }: Props): Promise<Metadata> {
+//   const { country } = await getData(code);
+//
+//   return {
+//     metadataBase: new URL('https://next14-gold.vercel.app'),
+//     title: country?.name,
+//     description: 'Country description',
+//     alternates: {
+//       canonical: `/${code}`,
+//       languages: {
+//         'uk-UA': '/uk-UA',
+//         'en-US': '/en-US',
+//         'de-DE': '/de-DE',
+//       },
+//     },
+//   };
+// }
 
-  return {
-    metadataBase: new URL('https://next14-gold.vercel.app'),
-    title: country?.name,
-    description: 'Country description',
-    alternates: {
-      canonical: `/${code}`,
-      languages: {
-        'uk-UA': '/uk-UA',
-        'en-US': '/en-US',
-        'de-DE': '/de-DE',
-      },
+export const metadata: Metadata = {
+  metadataBase: new URL('https://next14-gold.vercel.app'),
+  title: 'Country 1111111111',
+  description: 'CountriY description 1111111111',
+  alternates: {
+    canonical: '/countriY',
+    languages: {
+      'uk-UA': '/uk-UA',
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
     },
-  };
-}
+  },
+};
 
 export default async function Countries({ params: { code } }: Props) {
   const { country } = await getData(code);
