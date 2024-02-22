@@ -23,11 +23,11 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    // metadataBase: new URL('https://next14-gold.vercel.app'),
+    metadataBase: new URL('https://next14-gold.vercel.app'),
     title: country?.name || '',
     description: 'Country description',
     alternates: {
-      canonical: `/${code}`,
+      canonical: `/countries/${code}`,
     },
     openGraph: {
       images: ['/some-specific-page-image.jpg', ...previousImages],
