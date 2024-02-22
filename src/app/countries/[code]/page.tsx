@@ -32,11 +32,6 @@ export async function generateMetadata(
     openGraph: {
       images: ['/some-specific-page-image.jpg', ...previousImages],
     },
-    robots: {
-      index: true,
-      follow: true,
-      nocache: true,
-    },
   };
 }
 
