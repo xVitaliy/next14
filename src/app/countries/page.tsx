@@ -59,7 +59,7 @@ export default async function Countries() {
           // <MUILink key={country.code} component={Link} href={`countries/${country.code}`}>
           //   {country.name}
           // </MUILink>
-          <Link key={country.code} href={`countries/${country.code}`}>
+          <Link key={country.code} href={`/countries/${country.code}`}>
             {country.name}
           </Link>
         );
