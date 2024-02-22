@@ -3,7 +3,7 @@ import { client } from '@/graphql/client';
 import { CountryQuery, CountryQueryVariables } from '@/graphql/generated';
 import { COUNTRY } from '@/graphql/query/country.gql';
 import Image from 'next/image';
-import { Metadata } from 'next';
+import { Metadata, ResolvingMetadata } from 'next';
 
 //! from public
 // import img from '/image/tree.jpg';
@@ -21,42 +21,46 @@ async function getData(code: string) {
 }
 
 type Props = {
-  params: {
-    code: string;
-  };
+  params: { code: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
-// export async function generateMetadata({ params: { code } }: Props): Promise<Metadata> {
-//   const { country } = await getData(code);
-//
-//   return {
-//     metadataBase: new URL('https://next14-gold.vercel.app'),
-//     title: country?.name,
-//     description: 'Country description',
-//     alternates: {
-//       canonical: `/${code}`,
-//       languages: {
-//         'uk-UA': '/uk-UA',
-//         'en-US': '/en-US',
-//         'de-DE': '/de-DE',
-//       },
-//     },
-//   };
-// }
+export async function generateMetadata(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  { params: { code }, searchParams }: Props,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const { country } = await getData(code);
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://next14-gold.vercel.app'),
-  title: 'Country 1111111111',
-  description: 'CountriY description 1111111111',
-  alternates: {
-    canonical: '/countriY',
-    languages: {
-      'uk-UA': '/uk-UA',
-      'en-US': '/en-US',
-      'de-DE': '/de-DE',
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    metadataBase: new URL('https://next14-gold.vercel.app'),
+    title: country?.name || '',
+    description: 'Country description',
+    alternates: {
+      canonical: `/${code}`,
     },
-  },
-};
+    openGraph: {
+      images: ['/some-specific-page-image.jpg', ...previousImages],
+    },
+  };
+}
+
+// export const metadata: Metadata = {
+//   metadataBase: new URL('https://next14-gold.vercel.app'),
+//   title: 'Country 1111111111',
+//   description: 'CountriY description 1111111111',
+//   alternates: {
+//     canonical: '/countriY',
+//     languages: {
+//       'uk-UA': '/uk-UA',
+//       'en-US': '/en-US',
+//       'de-DE': '/de-DE',
+//     },
+//   },
+// };
 
 export default async function Countries({ params: { code } }: Props) {
   const { country } = await getData(code);
