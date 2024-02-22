@@ -46,6 +46,11 @@ export async function generateMetadata(
       siteName: 'OG siteName - my TEst project',
       locale: 'uk-UA',
     },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+    },
   };
 }
 
