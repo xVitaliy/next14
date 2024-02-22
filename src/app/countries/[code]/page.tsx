@@ -24,7 +24,7 @@ export async function generateMetadata(
 
   return {
     // metadataBase: new URL('https://next14-gold.vercel.app'),
-    title: 'country?.name' || '',
+    title: country?.name || '',
     // description: 'Country description',
     // alternates: {
     //   canonical: `/${code}`,
