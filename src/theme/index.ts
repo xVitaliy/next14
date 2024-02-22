@@ -12,11 +12,11 @@ export const theme = extendTheme({
   // },
   components: {
     MuiTypography: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.vars.palette.blackWhite.main,
-        }),
-      },
+      // styleOverrides: {
+      //   root: ({ theme }) => ({
+      //     color: theme.vars.palette.blackWhite.main,
+      //   }),
+      // },
     },
     MuiButton: {
       defaultProps: {
@@ -27,6 +27,9 @@ export const theme = extendTheme({
   colorSchemes: {
     light: {
       palette: {
+        test: {
+          main: '#14ff00',
+        },
         whiteBlack: {
           main: '#fff',
         },
@@ -40,6 +43,9 @@ export const theme = extendTheme({
     },
     dark: {
       palette: {
+        test: {
+          main: '#fffd00',
+        },
         whiteBlack: {
           main: '#000000',
         },
@@ -58,10 +64,12 @@ declare module '@mui/material/styles' {
   interface Palette {
     whiteBlack: Palette['primary'];
     blackWhite: Palette['primary'];
+    test: Palette['primary'];
   }
 
   interface PaletteOptions {
     whiteBlack: PaletteOptions['primary'];
     blackWhite: PaletteOptions['primary'];
+    test: PaletteOptions['primary'];
   }
 }

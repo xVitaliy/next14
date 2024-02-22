@@ -7,6 +7,12 @@ export const ThemeSwitcher = memo(() => {
   const { mode, setMode } = useColorScheme();
   const [isChecked, setIsChecked] = useState(true);
 
+  // const emojiCodePoints = ['1F1FA', '1F1E6'];
+  // const t = emojiCodePoints.map((code) => parseInt(code, 16));
+  // const emoji = String.fromCodePoint(...[127482, 127462]);
+  //
+  // console.log('t', t, emoji);
+
   const handleChange = () => {
     if (mode === 'light') {
       setMode('dark');

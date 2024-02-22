@@ -6,8 +6,10 @@ import {
   Experimental_CssVarsProvider as CssVarsProvider,
   getInitColorSchemeScript,
 } from '@mui/material';
-import { theme } from '../../theme';
+import { theme } from '@/theme';
 import { Layout } from '@/Layout/Layout';
+import { ApolloProvider } from '@apollo/client';
+import { client } from '@/graphql/client';
 
 interface ProvidersProps {
   children: ReactNode;
@@ -15,17 +17,19 @@ interface ProvidersProps {
 
 export const Providers = ({ children }: ProvidersProps) => {
   return (
-    <AppRouterCacheProvider>
-      <CssBaseline enableColorScheme={true} />
-      <CssVarsProvider
-        defaultMode='system'
-        theme={theme}
-        // set as root provider
-        disableNestedContext
-      >
-        {getInitColorSchemeScript()}
-        <Layout>{children}</Layout>
-      </CssVarsProvider>
-    </AppRouterCacheProvider>
+    <ApolloProvider client={client}>
+      <AppRouterCacheProvider>
+        <CssBaseline enableColorScheme={true} />
+        <CssVarsProvider
+          defaultMode='system'
+          theme={theme}
+          // set as root provider
+          disableNestedContext
+        >
+          {getInitColorSchemeScript()}
+          <Layout>{children}</Layout>
+        </CssVarsProvider>
+      </AppRouterCacheProvider>
+    </ApolloProvider>
   );
 };

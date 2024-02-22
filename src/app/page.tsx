@@ -56,7 +56,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   metadataBase: new URL('https://next14-gold.vercel.app'),
   title: 'Дефицит',
-  description: 'Эта хуета вас ничему не научит.',
+  description: 'Тестовый проект с имплементацие континентов и стран',
   alternates: {
     canonical: '/',
     languages: {
@@ -78,11 +78,11 @@ export const metadata: Metadata = {
     siteName: 'OG siteName - my TEst project',
     locale: 'uk-UA',
   },
-  // robots: {
-  //   index: true,
-  //   follow: true,
-  //   nocache: true,
-  // },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+  },
 };
 
 export default function Home() {

@@ -1,0 +1,20 @@
+overwrite: true
+schema: 'https://countries.trevorblades.com/graphql'
+documents: 'src/**/*.{js,jsx,ts,tsx,graphql}'
+generates:
+  src/graphql/generated/index.tsx:
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+        - eslint --fix
+    plugins:
+      - add:
+          content: "/* eslint-disable */"
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withHooks: true
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'

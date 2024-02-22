@@ -1,12 +1,15 @@
 import { Divider, Stack, Typography } from '@mui/material';
 import { ThemeSwitcher } from '@/components';
+import { Navigate } from '@/components/Navigate/Navigate';
+import { innerSX } from '@/components/Header/Header.styled';
 
 export const Header = () => {
   return (
     <Stack>
-      <Stack flex={1} direction={'row'} p={2} alignItems={'center'}>
-        <Typography>Header</Typography>
-        <Stack ml={'auto'}>
+      <Stack sx={innerSX}>
+        <Typography color={'primary.main'}>Header</Typography>
+        <Navigate />
+        <Stack>
           <ThemeSwitcher />
         </Stack>
       </Stack>
