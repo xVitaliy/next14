@@ -6,6 +6,7 @@ import { COUNTRIES } from '@/graphql/query/countries.gql';
 import { CountriesQuery } from '@/graphql/generated';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -55,10 +56,12 @@ export default async function Countries() {
     <Stack>
       {data.countries.map((country) => {
         return (
-          <div key={country.code}>{country.name}</div>
           // <MUILink key={country.code} component={Link} href={`countries/${country.code}`}>
           //   {country.name}
           // </MUILink>
+          <Link key={country.code} href={`countries/${country.code}`}>
+            {country.name}
+          </Link>
         );
       })}
     </Stack>
