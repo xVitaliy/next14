@@ -1,4 +1,5 @@
 'use client';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Box, Stack, styled } from '@mui/material';
 
 export const Wrap = styled(Stack)(
