@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Box, styled, SxProps, Theme } from '@mui/material';
 import { Div } from './Test.styled';
 
@@ -7,6 +8,7 @@ import { Div } from './Test.styled';
 // theme => theme.breakpoints.up('sm')
 // };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const testSX: SxProps<Theme> = [
   {
     border: '10px solid',
