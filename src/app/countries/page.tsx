@@ -1,10 +1,11 @@
-import { Link as MUILink, Stack } from '@mui/material';
+import { Link as MUILink } from '@mui/material';
 import { client } from '@/graphql/client';
 import { COUNTRIES } from '@/graphql/query/countries.gql';
 import { CountriesQuery } from '@/graphql/generated';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { Wrap } from '@/app/countries/Wrap.styled';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -27,20 +28,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// export const metadata: Metadata = {
-//   metadataBase: new URL('https://next14-gold.vercel.app'),
-//   title: 'Countries',
-//   description: 'Countries description',
-//   alternates: {
-//     canonical: '/countries',
-//     languages: {
-//       'uk-UA': '/uk-UA',
-//       'en-US': '/en-US',
-//       'de-DE': '/de-DE',
-//     },
-//   },
-// };
-
 async function getData() {
   try {
     const res = await client.query<CountriesQuery>({
@@ -56,7 +43,7 @@ export default async function Countries() {
   const data = await getData();
 
   return (
-    <Stack>
+    <Wrap>
       {data.countries.map((country) => {
         return (
           <MUILink key={country.code} component={Link} href={`countries/${country.code}`}>
@@ -67,6 +54,6 @@ export default async function Countries() {
           // </Link>
         );
       })}
-    </Stack>
+    </Wrap>
   );
 }

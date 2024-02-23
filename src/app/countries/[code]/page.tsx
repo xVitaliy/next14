@@ -4,6 +4,7 @@ import { CountryQuery, CountryQueryVariables } from '@/graphql/generated';
 import { COUNTRY } from '@/graphql/query/country.gql';
 import Image from 'next/image';
 import { Metadata, ResolvingMetadata } from 'next';
+import { GoBack } from '@/components';
 
 //! from public
 // import img from '/image/tree.jpg';
@@ -55,25 +56,14 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-// export const metadata: Metadata = {
-//   metadataBase: new URL('https://next14-gold.vercel.app'),
-//   title: 'Country 1111111111',
-//   description: 'CountriY description 1111111111',
-//   alternates: {
-//     canonical: '/countriY',
-//     languages: {
-//       'uk-UA': '/uk-UA',
-//       'en-US': '/en-US',
-//       'de-DE': '/de-DE',
-//     },
-//   },
-// };
-
 export default async function Countries({ params: { code } }: Props) {
   const { country } = await getData(code);
 
   return (
     <Stack>
+      <Stack flexDirection={'row'}>
+        <GoBack />
+      </Stack>
       <Stack>{country?.name}</Stack>
       <Stack>
         <Image
